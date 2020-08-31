@@ -14,7 +14,7 @@ let mic_switch = true;
 let video_switch = true;
 
 const peers = {}
-navigator.mediaDevices.getUserMedia({
+navigator.getUserMedia({
     video: true,
     audio: true
 }).then(stream =>{
