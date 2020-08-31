@@ -2,7 +2,7 @@ const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
     host: 'peerjs-server.herokuapp.com',
-    secure:true,
+    secure:false,
     port: '9000'
 })
 const myVideo = document.createElement('video')
@@ -14,7 +14,7 @@ let mic_switch = true;
 let video_switch = true;
 
 const peers = {}
-navigator.getUserMedia({
+navigator.mediaDevices.getUserMedia({
     video: true,
     audio: true
 }).then(stream =>{
