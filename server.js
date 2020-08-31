@@ -13,7 +13,7 @@ app.get('/', (req,res)=>{
 app.get('/:room',(req,res)=>{
     res.render('room', {roomId : req.params.room})
 })
-io.on('connection', socket =>{
+io.on('connection', (socket) =>{
     socket.on('join-room',(roomId,userId)=>{
         socket.join(roomId)
         socket.to(roomId).broadcast.emit('user-connected', userId)
@@ -22,4 +22,4 @@ io.on('connection', socket =>{
         })
     })
 })
-server.listen(process.env.PORT || 3030)
+server.listen(process.env.PORT || 3030,()=>console.log("Server Started"))
