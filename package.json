@@ -7,7 +7,7 @@
     "start": "node server",
     "devStart": "nodemon server.js"
   },
-  "author": "",
+  "author": "Mohit Soni",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.5",
