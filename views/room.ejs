@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const ROOM_ID = "<%=roomId%>"
+    </script>
+    <script src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+    <script src='/socket.io/socket.io.js'></script>
+    <script defer src='script.js'></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <title>Document</title>
+    <link rel='stylesheet' href='css/styles.css'/>
+</head>
+<body>
+    <div id="video-grid"></div>
+    <div id = "audio-video-button-wrapper">
+        <button id='audio_button'>Toggle Audio 
+            <i style='font-size:24px; display: none;' class='fas' id='audio-icon-off'>&#xf05e;</i> 
+            <i style='font-size:24px' class='fas' id='audio-icon-on'>&#xf58f;</i>
+        </button>
+        <button id='video_button'>Toggle Video
+            <i style='font-size:24px; display: none;' class='fas' id='video-icon-off'>&#xf4e2;</i>
+            <i style='font-size:24px' class='fas' id='video-icon-on'>&#xf03d;</i>
+        </button>
+    </div>
+</body>
+</html>
