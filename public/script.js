@@ -62,6 +62,8 @@ navigator.mediaDevices.getUserMedia({
     socket.on('user-connected', userId =>{
         connectToNewUser(userId,stream);
     })
+}).catch((err)=>{
+    console.log("Bhai error yha h :"+err)
 })
 socket.on('user-disconnected',userId=>{
     if(peers[userId]) {
