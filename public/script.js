@@ -6,6 +6,18 @@ myVideo.muted = true
 
 var audio_button = document.getElementById("audio_button");
 var video_button = document.getElementById("video_button");
+var invite= document.getElementById("invite");
+invite.onclick = function(){
+
+        var dummy = document.createElement('input'),
+          text = window.location.href;
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        alert('Invite Link copied to your clipboard send this link to atendies');
+}
 let mic_switch = true;
 let video_switch = true;
 
@@ -18,16 +30,13 @@ navigator.mediaDevices.getUserMedia({
     // Audio Video Toggler
     var localStream=stream //Get stream
     video_button.onclick = function() {
-        console.log("Muge click kiua")
         if(localStream != null && localStream.getVideoTracks().length > 0){
             video_switch = !video_switch;
             if(video_switch){
-                document.getElementById('video-icon-on').style.display='inline-block'
-                document.getElementById('video-icon-off').style.display='none'
+                document.getElementById("vid").src='./HomePage/img/video_on.png';
             }
             else{
-                document.getElementById('video-icon-on').style.display='none'
-                document.getElementById('video-icon-off').style.display='inline-block'
+                document.getElementById("vid").src='./HomePage/img/video_off.png';
             }
             localStream.getVideoTracks()[0].enabled = video_switch;
         }
@@ -37,12 +46,10 @@ navigator.mediaDevices.getUserMedia({
             mic_switch = !mic_switch;
             
             if(mic_switch){
-                document.getElementById('audio-icon-on').style.display='inline-block'
-                document.getElementById('audio-icon-off').style.display='none'
+                document.getElementById("aud").src='./HomePage/img/contact-icon.png';
             }
             else{
-                document.getElementById('audio-icon-on').style.display='none'
-                document.getElementById('audio-icon-off').style.display='inline-block'
+                document.getElementById("aud").src='./HomePage/img/mute.png';
             }
             localStream.getAudioTracks()[0].enabled = mic_switch;
         }

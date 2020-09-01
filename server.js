@@ -4,10 +4,12 @@ const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const {v4 : uuidv4} = require('uuid')
 
-
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.get('/', (req,res)=>{
+    res.render('index')
+})
+app.get('/start', (req,res)=>{
     res.redirect(`/${uuidv4()}`)
 })
 app.get('/:room',(req,res)=>{
@@ -22,4 +24,4 @@ io.on('connection', (socket) =>{
         })
     })
 })
-server.listen(process.env.PORT || 3030,()=>console.log("Server Started"))
+server.listen(process.env.PORT || 3000,()=>console.log("Server Started"))
